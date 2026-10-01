@@ -3996,7 +3996,7 @@ from pyngrok import ngrok
 
 ngrok.kill()
 
-NGROK_AUTH_TOKEN = "3K2EYPPgcQpICsOwnIb5RzqyG0l_UHHXQKg3ZHv2mer9Z73h"
+NGROK_AUTH_TOKEN = 
 
 ngrok.set_auth_token(NGROK_AUTH_TOKEN)
 

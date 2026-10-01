@@ -3982,32 +3982,3 @@ print("\nData files:")
 for path in sorted(DATA_DIR.iterdir()):
     print("•", path.name)
 
-!pkill -f streamlit
-
-!streamlit run /content/app.py &>/content/streamlit.log &
-
-!pkill -f streamlit
-!streamlit run /content/app.py &>/content/streamlit.log &
-
-!sleep 5
-!cat /content/streamlit.log
-
-from pyngrok import ngrok
-
-ngrok.kill()
-
-NGROK_AUTH_TOKEN = 
-
-ngrok.set_auth_token(NGROK_AUTH_TOKEN)
-
-print("✓ ngrok authentication configured")
-
-from pyngrok import ngrok
-
-ngrok.kill()
-
-public_url = ngrok.connect(8501)
-
-print("🚀 Your FinLit dashboard:")
-print(public_url)
-

@@ -1,5 +1,6 @@
+
 # ============================================================
-# FINLIT DECISION COPILOT
+# DECISORA DECISION COPILOT
 # Fresh native Streamlit UI
 # ============================================================
 
@@ -253,6 +254,16 @@ def read_portfolio_snapshot(filename):
         "Percent_to_NAV"
     ]
 
+    # Remove an unwanted pound symbol from instrument names.
+    # This is a display cleanup only; portfolio values
+    # and calculations remain unchanged.
+    df["Instrument"] = (
+        df["Instrument"]
+        .astype("string")
+        .str.replace("£", "", regex=False)
+        .str.strip()
+    )
+
     df["ISIN"] = df["ISIN"].astype(str)
 
     df["Percent_to_NAV"] = pd.to_numeric(
@@ -386,7 +397,7 @@ portfolio_history = load_portfolio_history()
 
 with st.sidebar:
 
-    st.markdown("## 💰 FinLit")
+    st.markdown("## 💰 Decisora")
 
     st.caption(
         "Decision Copilot"
@@ -636,7 +647,7 @@ else:
 # ============================================================
 
 st.caption(
-    "FINLIT DECISION COPILOT  ·  DECISION CHECKPOINT"
+    "DECISORA  ·  DECISION CHECKPOINT"
 )
 
 st.title(
@@ -721,7 +732,7 @@ tab_decision, tab_goal, tab_evidence, tab_ai = st.tabs(
         "🎯 Decision impact",
         "📊 Goal impact",
         "🔎 Evidence",
-        "🤖 Ask FinLit"
+        "🤖 Ask Decisora"
     ]
 )
 
